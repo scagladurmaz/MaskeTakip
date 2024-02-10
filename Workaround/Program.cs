@@ -14,6 +14,68 @@
         int sonuc = Topla(777,2024);
 
         //Dizlier  
+        string ogrenci1 = "Çağla";
+        string ogrenci2 = "Damla";
+        string ogrenci3 = "Özgü";
+
+        Console.WriteLine(ogrenci1);
+        Console.WriteLine(ogrenci2);
+        Console.WriteLine(ogrenci3);
+
+        string[] ogrenciler = new string[3];
+        ogrenciler[0] =  "Çağla";
+        ogrenciler[1] =  "Damla";
+        ogrenciler[2] =  "Özgü";
+        //ogrenciler[3] = "TheRasmus";
+        ogrenciler = new string[4];
+        ogrenciler[3] = "SomeoneLikeU";
+
+        for(int i = 0; i< ogrenciler.Length; i++)
+        {
+            Console.WriteLine(ogrenciler[i]);
+        }
+
+        string[] sehirler1 = new[] { "Ankara", "İstanbul", "İzmir" };
+        string[] sehirler2 = new[] { "Tokat", "Trabzon", "Ordu" };
+
+        sehirler2 = sehirler1;
+        sehirler1[0] = "Kahramanmaraş";
+
+        Console.WriteLine(sehirler2[0]);
+
+
+        //int sayi1 = 10;
+        //int sayi2 = 20;
+        //sayi2 = sayi1;
+        //sayi1 = 30;
+        //sayi2= ? -> artık 10'dur
+
+
+        //Person person1 = new Person();
+        //person1.FirstName = "Çağla";
+
+        //Person person2 = new Person(); bellekte bu nesne için (yine person sınıfından türetilen) bambaşka bir yer açtık
+        //person2.FirstName = "Özgü";
+
+        //String aslında bir referans tiptir. Çoğunlukla değer tip kullanılır. String bir char arraydir. 
+
+        foreach (string sehir in sehirler1)// Bu döngüyle dizi formatındaki yapıları dönüyoruz. uzun uzun for yazmamak için
+        {
+            Console.WriteLine("sehir");//buradaki sehir diziyi gezerken elemanlar verilen bir takma isimdir, aliastır. hangisinn gezdiğimizi bilmek için 
+        }
+
+        //Generic Collections
+        //3 elemanlı 4 elemanlı vs diye liste oluşturmuyoruz. Referans tipin referans probleminden kurtulmuş oluyoruz.
+        List<string> yeniSehirler1 = new List<string> { "Sinop", "İstanbul", "Ağrı" };
+        yeniSehirler1.Add("Tokat");
+        //Add komutunun yaptıkları:newlediğimizde önce eski verileri cebe atıyo, newlediğimizde yenilioyr, cebe attıklarını listeye koyuyor ve yeni elemanı da sonuna ekliyor.
+        foreach( var sehir in yeniSehirler1)
+        {
+            Console.WriteLine(sehir);
+        }
+
+        //ÖDEV
+
 
 
         Console.ReadLine();
