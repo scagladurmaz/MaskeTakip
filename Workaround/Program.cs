@@ -1,4 +1,8 @@
-﻿internal class Program
+﻿
+using Business.Concrete;
+using Entities.Concrete;
+
+internal class Program
 {
     private static void Main(string[] args)
     {
@@ -11,7 +15,7 @@
         SelamVer(isim: "Damla");
         SelamVer();
 
-        int sonuc = Topla(777,2024);
+        int sonuc = Topla(777, 2024);
 
         //Dizlier  
         string ogrenci1 = "Çağla";
@@ -23,14 +27,14 @@
         Console.WriteLine(ogrenci3);
 
         string[] ogrenciler = new string[3];
-        ogrenciler[0] =  "Çağla";
-        ogrenciler[1] =  "Damla";
-        ogrenciler[2] =  "Özgü";
+        ogrenciler[0] = "Çağla";
+        ogrenciler[1] = "Damla";
+        ogrenciler[2] = "Özgü";
         //ogrenciler[3] = "TheRasmus";
         ogrenciler = new string[4];
         ogrenciler[3] = "SomeoneLikeU";
 
-        for(int i = 0; i< ogrenciler.Length; i++)
+        for (int i = 0; i < ogrenciler.Length; i++)
         {
             Console.WriteLine(ogrenciler[i]);
         }
@@ -51,11 +55,16 @@
         //sayi2= ? -> artık 10'dur
 
 
-        //Person person1 = new Person();
-        //person1.FirstName = "Çağla";
+        Person person1 = new Person();
+        person1.FirstName = "Çağla";
+        person1.LastName = "Durmaz";
+        person1.DateOfBirthYear = 1994;
+        person1.NationalIdentity = 123;
+        
 
-        //Person person2 = new Person(); bellekte bu nesne için (yine person sınıfından türetilen) bambaşka bir yer açtık
-        //person2.FirstName = "Özgü";
+        //bellekte bu nesne için (yine person sınıfından türetilen) bambaşka bir yer açtık
+        Person person2 = new Person(); 
+        person2.FirstName = "Özgü";
 
         //String aslında bir referans tiptir. Çoğunlukla değer tip kullanılır. String bir char arraydir. 
 
@@ -69,30 +78,34 @@
         List<string> yeniSehirler1 = new List<string> { "Sinop", "İstanbul", "Ağrı" };
         yeniSehirler1.Add("Tokat");
         //Add komutunun yaptıkları:newlediğimizde önce eski verileri cebe atıyo, newlediğimizde yenilioyr, cebe attıklarını listeye koyuyor ve yeni elemanı da sonuna ekliyor.
-        foreach( var sehir in yeniSehirler1)
+        foreach (var sehir in yeniSehirler1)
         {
             Console.WriteLine(sehir);
         }
 
-        //ÖDEV
+        //ÖDEV Kendi koleksiyonunu yaz (MyList)
 
+
+        PttManager pttManager = new PttManager(new PersonManager());
+        pttManager.GiveMask(person1);
 
 
         Console.ReadLine();
 
     }
 
-    //void metodlar sadece işi yaparlar , geriye bir değer döndürmezler.
-    static void SelamVer(string isim="isimsiz")//isimsiz = default parametre
         
+    //void metodlar sadece işi yaparlar , geriye bir değer döndürmezler.
+    static void SelamVer(string isim = "isimsiz")//isimsiz = default parametre
+
     {
-        Console.WriteLine("Merhaba "+ isim);
+        Console.WriteLine("Merhaba " + isim);
     }
 
 
     //resharper uygulamasıyla sayi1 ve diğer parametrelerin değerleri görüntülenebilir
 
-    static int Topla(int sayi1=5, int sayi2=10)
+    static int Topla(int sayi1 = 5, int sayi2 = 10)
     {
         //default parametreler en sona yazılır.
         // ilk parametrenin defaultunu verip sonraki parametrenin defaultunu yazmamak gibi bi şey yok
@@ -101,16 +114,6 @@
         Console.WriteLine("Toplam :" + sonuc.ToString());
         return sonuc;
     }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -132,6 +135,8 @@
         Console.ReadLine();
     }
 }
+
+
 /// <summary>
 /// Sınıf içi değişkenlere public vermezsen başka yerden çağıramazsın
 /// Classların defaultu public, değişkelerin private.
@@ -139,7 +144,7 @@
 public class Vatandas
 {  //Pascal casing
     public string Ad { get; set; } // public fieldlar buyuk harle yazılır
-    public string Soyad { get; set;}
-    public int DogumYili { get; set;}
-    public long TcNo { get; set;}
+    public string Soyad { get; set; }
+    public int DogumYili { get; set; }
+    public long TcNo { get; set; }
 }
